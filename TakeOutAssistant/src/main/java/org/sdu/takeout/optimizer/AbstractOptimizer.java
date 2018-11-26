@@ -19,6 +19,7 @@ public abstract class AbstractOptimizer {
 	public OptimizedResult optimize(Order order) {
 		int i;
 		int phoneNum = order.getPhoneNum();
+		if(phoneNum < 2) return null;
 		List<Integer> reductionList = null;
 		double[] item = order.getItem();
 		double[] triggerPrice = order.getTriggerPrice();
@@ -39,6 +40,7 @@ public abstract class AbstractOptimizer {
 			}
 			//根据组合情况、商品数据，判断是否存在一个二维数组解
 			result = new double[reductionList.size()][];
+			System.out.println(reductionList.toString());
 			if(match(reductionList, item, result)) {
 				break;
 			}

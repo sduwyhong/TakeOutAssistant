@@ -41,18 +41,21 @@ public class OptimizedResult {
 	}
 	@Override
 	public String toString() {
-		return "OptimizedResult [conditionEachPhone="
-				+ printTwoDimensionArray(conditionEachPhone) + ", reduction="
-				+ reduction + ", moreThanOriginal=" + moreThanOriginal + "]";
+		printTwoDimensionArray(conditionEachPhone);
+		return "OptimizedResult [最优的满减金额(已除去配送费)为="
+				+ reduction + "元, 比用一台手机点多优惠=" + moreThanOriginal + "元]";
 	}
 	private String printTwoDimensionArray(double[][] array) {
 		int i,j;
+		double sum = 0;
 		for(i = 0; i < array.length; ++i) {
 			System.out.print("第"+(i + 1)+"部手机点：");
 			for(j = 0; j < array[i].length; ++j) {
+				sum += array[i][j];
 				System.out.print(array[i][j] + "元 ");
 			}
-			System.out.println("的菜品");
+			System.out.println("共"+sum+"元的菜品");
+			sum = 0;
 		}
 		return null;
 	}

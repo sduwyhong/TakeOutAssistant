@@ -34,6 +34,10 @@ public class ElemeOptimizer extends AbstractOptimizer {
 	}
 
 	private boolean match(List<Integer> reductionList, double[] item, int i, double[][] result) {
+		if(reductionList.size() == 1) {
+			result[0] = item;
+			return true;
+		}
 		int j,k;
 		boolean hasSolution = false;
 		double sum = 0;
